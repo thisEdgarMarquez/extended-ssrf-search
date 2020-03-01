@@ -25,6 +25,7 @@ if sys.version_info < (3, 0):
 import ssl
 import queue
 import time
+import argparse
 
 from inc.Config import *
 from inc.Tests import *
@@ -35,7 +36,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 
 def main():
-    config = Config()
+    config = Config(targets_file)
     config.show_summary()
 
     print("{} Starting to prepare tests...".format(
@@ -81,4 +82,8 @@ def main():
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-t', '--targets', help='Path of targets list', required=True)
+    args = parser.parse_args()
+    targets_file = args.targets
     main()

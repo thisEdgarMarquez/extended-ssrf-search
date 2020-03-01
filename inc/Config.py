@@ -25,14 +25,14 @@ from inc.Clean import *
 
 class Config:
 
-    def __init__(self):
+    def __init__(self,url_files):
 
         self.config = configparser.ConfigParser()
         self.config.read('app-settings.conf')
 
         self.__set_set_config()
 
-        self.__get_urls()
+        self.__get_urls(url_files)
         self.__get_cookies()
         self.__get_static_headers()
 
@@ -128,9 +128,9 @@ class Config:
 
         self.static_headers = static_headers
 
-    def __get_urls(self):
+    def __get_urls(self,url_files):
 
-        file = self.config["files"]["Urls"]
+        file = url_files
 
         if not os.path.exists(file):
             sys.exit("Url list not found")
