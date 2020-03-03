@@ -36,7 +36,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 
 def main():
-    config = Config(targets_file)
+    config = Config(targets_file,config_file)
     config.show_summary()
 
     print("{} Starting to prepare tests...".format(
@@ -84,6 +84,8 @@ def main():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('-t', '--targets', help='Path of targets list', required=True)
+    parser.add_argument('-c', '--config', help='Config file', required=True)
     args = parser.parse_args()
     targets_file = args.targets
+    config_file = args.config
     main()

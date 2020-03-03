@@ -25,10 +25,10 @@ from inc.Clean import *
 
 class Config:
 
-    def __init__(self,url_files):
+    def __init__(self,url_files,config_file):
 
         self.config = configparser.ConfigParser()
-        self.config.read('app-settings.conf')
+        self.config.read(config_file)
 
         self.__set_set_config()
 
