@@ -72,7 +72,7 @@ class Config:
 
     def __get_cookies(self):
 
-        file = self.config["files"]["Cookies"]
+        file = os.getcwd()+'/plugins/extended-ssrf-search/'+self.config["files"]["Cookies"]
 
         if not os.path.exists(file):
             sys.exit("Cookie jar not found")
@@ -85,7 +85,7 @@ class Config:
 
     def __get_parameters(self):
 
-        file = self.config["files"]["Parameters"]
+        file = os.getcwd()+'/plugins/extended-ssrf-search/'+self.config["files"]["Parameters"]
 
         if not os.path.exists(file):
             sys.exit("Param list not found")
@@ -101,7 +101,7 @@ class Config:
 
     def __get_http_headers(self):
 
-        file = self.config["files"]["HttpHeaders"]
+        file = os.getcwd()+'/plugins/extended-ssrf-search/'+self.config["files"]["HttpHeaders"]
 
         if not os.path.exists(file):
             sys.exit("Header list not found")
@@ -117,7 +117,7 @@ class Config:
 
     def __get_static_headers(self):
 
-        file = self.config["files"]["StaticHeaders"]
+        file = os.getcwd()+'/plugins/extended-ssrf-search/'+self.config["files"]["StaticHeaders"]
 
         if not os.path.exists(file):
             sys.exit("Static header list not found")
